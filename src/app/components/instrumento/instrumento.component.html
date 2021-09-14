@@ -1,0 +1,65 @@
+<p>AÑADIR INSTRUMENTO</p>
+
+<mat-card class="mat-elevation-z6">
+  <mat-card-content>
+    <mat-card-title>
+      AÑADIR Instrumento:
+    </mat-card-title>
+
+    <form [formGroup]="formulario" (submit)="crearInstrumento(instrumento)">
+      <div>
+        <!-- <p>
+          <img mat-card-sm-image src="{{ instrumento.imagen }}">
+        </p> -->
+
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Nombre:</mat-label>
+              <input matInput [ngModel]="instrumento.nombre" formControlName="nombre" type="text">
+            </mat-form-field>
+        </p>
+        <!-- <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Clasificación:</mat-label>
+              <input matInput [ngModel]="instrumento.clasificacion" formControlName="clasificacion" type="text">
+            </mat-form-field>
+        </p> -->
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Clasificación:</mat-label>
+            <mat-select class="form-control" formControlName="clasificacion">
+              <mat-option *ngFor="let key of keys" [value]="key">
+                {{key}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Origen:</mat-label>
+              <input matInput [ngModel]="instrumento.origen" formControlName="origen" type="text">
+            </mat-form-field>
+        </p>
+        <!-- <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Avatar:</mat-label>
+              <input matInput [ngModel]="instrumento.imagen" formControlName="imagen" type="text">
+            </mat-form-field>
+        </p> -->
+
+
+            <button class="thebutton" mat-raised-button color="primary" [routerLink]="['/instrumentos']">
+              <- Volver
+            </button>
+
+            <button mat-raised-button class="thebutton" color="accent" type="submit" [disabled]="formulario.invalid">
+              Actualizar
+            </button>
+
+
+      </div>
+    </form>
+
+  </mat-card-content>
+</mat-card>
+

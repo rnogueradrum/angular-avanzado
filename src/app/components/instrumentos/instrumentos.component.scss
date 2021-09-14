@@ -1,0 +1,23 @@
+h1 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: blue;
+  font-weight: bold;
+}
+table {
+  margin:auto;
+  width: 80%;
+}
+th {
+  color: blue;
+  font-size: large;
+  font-weight: bold;
+}
+.fixedbutton {
+  position: fixed;
+  top:13%;
+  right: 15px;
+  width: 150px;
+  transform: translateY(-50%);
+}
