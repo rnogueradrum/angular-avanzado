@@ -15,7 +15,7 @@ export class InstrumentoComponent implements OnInit {
   formulario: FormGroup = this._formBuilder.group({});
 
   instrumento: Instrumento = {
-    // id: 0,
+    id: '',
     nombre: '',
     clasificacion: Clasificacion.OTROS,
     origen: '',

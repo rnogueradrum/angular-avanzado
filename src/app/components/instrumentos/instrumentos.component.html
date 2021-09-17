@@ -1,55 +1,58 @@
-<h1>INSTRUMENTOS MUSICALES</h1>
+<h1>INSTRUMENTOS MUSICALES (FIREBASE)</h1>
+<ng-container *ngIf="cargandoTabla else elseTemplate">
+  <div class="spinner">
+    <h2>... CARGANDO Tabla de Instrumentos Musicales ...</h2>
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-container>
 
-<table mat-table [dataSource]="instrumentos" class="mat-elevation-z8">
+<ng-template #elseTemplate>
+        <table mat-table [dataSource]="instrumentosDataSource" class="mat-elevation-z8">
 
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
+          <!-- id Column -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>Id Documento:</th>
+            <td mat-cell *matCellDef="let instrumento">
+              {{instrumento.id}}
+            </td>
+          </ng-container>
 
-  <!-- Nombre Column -->
-  <ng-container matColumnDef="nombre">
-    <th mat-header-cell *matHeaderCellDef>Nombre</th>
-    <td mat-cell *matCellDef="let instrumento"> {{instrumento.nombre}} </td>
-  </ng-container>
+          <!-- Nombre Column -->
+          <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat-cell *matCellDef="let instrumento">
+              {{instrumento.nombre}}
+            </td>
+          </ng-container>
 
-  <!-- Clasificación Column -->
-  <ng-container matColumnDef="clasificacion">
-    <th mat-header-cell *matHeaderCellDef>Clasificación</th>
-    <td mat-cell *matCellDef="let instrumento"> {{instrumento.clasificacion}} </td>
-  </ng-container>
-
-
-  <!-- Origen Column -->
-  <ng-container matColumnDef="origen">
-    <th mat-header-cell *matHeaderCellDef>Origen</th>
-    <td mat-cell *matCellDef="let instrumento">
-      {{instrumento.origen}}
-      <!-- TODO Crear formulario y añadir input para editar los campos en la tabla -->
-      <!-- <td mat-cell *matCellDef="let instrumento; let i = index" [formGroupName]="i"></td> -->
-      <!-- <input matInput [ngModel]="instrumento.origen" formControlName="origen" placeholder="Origen" type="text" > -->
-    </td>
-  </ng-container>
-
-  <!-- Edit-Trash-Detalle Column -->
-  <ng-container matColumnDef="edit">
-    <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let instrumento">
-      <mat-icon>edit</mat-icon>
-      <mat-icon>delete</mat-icon>
-      <mat-icon>pageview</mat-icon>
-    </td>
-  </ng-container>
+          <!-- Clasificación Column -->
+          <ng-container matColumnDef="clasificacion">
+            <th mat-header-cell *matHeaderCellDef>Clasificación</th>
+            <td mat-cell *matCellDef="let instrumento"> {{instrumento.clasificacion}} </td>
+          </ng-container>
 
 
+          <!-- Origen Column -->
+          <ng-container matColumnDef="origen">
+            <th mat-header-cell *matHeaderCellDef>Origen</th>
+            <td mat-cell *matCellDef="let instrumento">
+              {{instrumento.origen}}
+            </td>
+          </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          <!-- Edit-Trash-Detalle Column -->
+          <ng-container matColumnDef="detalle">
+            <th mat-header-cell *matHeaderCellDef>Detalle (REDUX)</th>
+            <td mat-cell *matCellDef="let instrumento">
+              <button mat-button (click)="irADetalleInstrumento(instrumento)" [routerLink]="['/instrumento']">
+                <mat-icon>pageview</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
 
-</table>
-
-
-<button class="fixedbutton" mat-raised-button color="accent" [routerLink]="['/instrumento']">
-  Añadir Instrumento
-</button>
-
-
+        </table>
+</ng-template>

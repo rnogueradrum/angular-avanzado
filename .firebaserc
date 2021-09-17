@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "instrumentosmusicales-242db"
+  },
+  "targets": {
+    "instrumentosmusicales-242db": {
+      "hosting": {
+        "angular-avanzado": [
+          "instrumentosmusicales-242db"
+        ]
+      }
+    }
+  }
+}

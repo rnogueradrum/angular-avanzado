@@ -1,2 +1,51 @@
-<p>instrumento-page works!</p>
-<app-instrumento></app-instrumento>
+<h1>DETALLE DEL INSTRUMENTO (STORE-STATE CON REDUX)</h1>
+
+<mat-card class="mat-elevation-z6">
+  <mat-card-content>
+    <mat-card-title>
+      Instrumento REDUX-STORE
+    </mat-card-title>
+
+      <div>
+
+        <p>
+          <mat-card-content appearance="fill">
+            <mat-label>Id Documento:</mat-label>
+            {{instrumento.id}}
+          </mat-card-content>
+        </p>
+
+        <p>
+          <mat-card-content appearance="fill">
+            <mat-label>Nombre:</mat-label>
+              {{instrumento.nombre}}
+            </mat-card-content>
+        </p>
+
+        <p>
+          <mat-card-content appearance="fill">
+            <mat-label>Clasificación:</mat-label>
+            {{instrumento.clasificacion}}
+          </mat-card-content>
+        </p>
+        <p>
+          <mat-card-content appearance="fill">
+            <mat-label>Origen:</mat-label>
+              {{instrumento.origen}}
+            </mat-card-content>
+        </p>
+
+            <button class="thebutton" mat-raised-button color="primary" [routerLink]="['/instrumentos']">
+              <- Volver a la lista
+            </button>
+
+            <!-- <button mat-raised-button class="thebutton" color="accent" type="submit" [disabled]="formulario.invalid">
+              Actualizar
+            </button> -->
+
+      </div>
+
+  </mat-card-content>
+</mat-card>
+
+
